@@ -1,0 +1,141 @@
+<h2 style="text-align:center;">NHẬP KHO</h2>
+<mat-divider></mat-divider>
+<div class="example-container">
+    <form [formGroup]="form" (ngSubmit)="saveDetails(form)">
+        <table>
+            <tr>
+                <td>
+                    <mat-form-field appearance="fill" [floatLabel]="getFloatLabelValue()">
+                        <mat-label>Tên thuốc</mat-label>
+                        <input matInput placeholder="Panadol" formControlName="medicineName">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field appearance="fill" [floatLabel]="getFloatLabelValue()">
+                        <mat-label>Công ty dược</mat-label>
+                        <input matInput placeholder="Fizer" formControlName="medicineCompany">
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field appearance="fill" [hideRequiredMarker]="hideRequiredControl.value"
+                        [floatLabel]="getFloatLabelValue()">
+                        <mat-select required formControlName="category">
+                            <mat-option>-- None --</mat-option>
+                            <mat-option value="Thuốc A">Thuốc A</mat-option>
+                            <mat-option value="Thuốc B">Thuốc B</mat-option>
+                            <mat-option value="Thuốc C">Thuốc C</mat-option>
+                            <mat-option value="Thuốc D">Thuốc D</mat-option>
+                            <mat-option value="Thuốc E">Thuốc E</mat-option>
+                            <mat-option value="Thuốc F">Thuốc F</mat-option>
+                        </mat-select>
+                        <mat-label>
+                            Phân loại
+                        </mat-label>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field appearance="fill" [hideRequiredMarker]="hideRequiredControl.value"
+                        [floatLabel]="getFloatLabelValue()">
+                        <mat-select formControlName="origin">
+                            <mat-option>-- None --</mat-option>
+                            <mat-option value="India">India</mat-option>
+                            <mat-option value="France">France</mat-option>
+                            <mat-option value="Germany">Germany</mat-option>
+                            <mat-option value="Japan">Japan</mat-option>
+                            <mat-option value="Viet Nam">Viet Nam</mat-option>
+                        </mat-select>
+                        <mat-label>
+                            Xuất xứ
+                        </mat-label>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field appearance="fill" class="example-form-field">
+                        <mat-label>Ngày sản xuất</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="manufactureDate">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <!-- #docregion datepicker-actions -->
+                        <mat-datepicker #picker>
+                          <mat-datepicker-actions>
+                            <button mat-button matDatepickerCancel>Cancel</button>
+                            <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                          </mat-datepicker-actions>
+                        </mat-datepicker>
+                      <!-- #enddocregion datepicker-actions -->
+                      </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field appearance="fill" class="example-form-field">
+                        <mat-label>Hạn sử dụng</mat-label>
+                        <input matInput [matDatepicker]="pickerTo" formControlName="expireDate">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+                      <!-- #docregion datepicker-actions -->
+                        <mat-datepicker #pickerTo>
+                          <mat-datepicker-actions>
+                            <button mat-button matDatepickerCancel>Cancel</button>
+                            <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                          </mat-datepicker-actions>
+                        </mat-datepicker>
+                      <!-- #enddocregion datepicker-actions -->
+                      </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field appearance="fill" class="example-form-field">
+                        <mat-label>Ngày nhập kho</mat-label>
+                        <input matInput [matDatepicker]="pickerTo1" formControlName="importDate">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="pickerTo1"></mat-datepicker-toggle>
+                      <!-- #docregion datepicker-actions -->
+                        <mat-datepicker #pickerTo1>
+                          <mat-datepicker-actions>
+                            <button mat-button matDatepickerCancel>Cancel</button>
+                            <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                          </mat-datepicker-actions>
+                        </mat-datepicker>
+                      <!-- #enddocregion datepicker-actions -->
+                      </mat-form-field>
+                </td>
+                
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Số lượng</mat-label>
+                        <input matInput placeholder="1000" formControlName="amount">
+                      </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Đơn vị</mat-label>
+                        <input matInput placeholder="Hộp" formControlName="unit">
+                      </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Trạng thái</mat-label>
+                        <input matInput placeholder="Còn hạn" formControlName="status">
+                      </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Nhập</button>
+            </tr>
+
+        </table>
+        <!-- <mat-divider></mat-divider>
+        <button mat-icon-button (click)="medicineUpdate(medicine.id)" title="Cập nhật">
+          <mat-icon>update</mat-icon>
+        </button>
+        <button mat-icon-button (click)="deleteMedicine(medicine.id)" title="Loại bỏ">
+          <mat-icon>delete</mat-icon>
+        </button> -->
+
+
+
+        
