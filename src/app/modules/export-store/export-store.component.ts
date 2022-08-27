@@ -46,6 +46,9 @@ export class ExportStoreComponent implements OnInit {
   reloadData() {
     this.pharmaciesService.getMedicineExportList().subscribe(data => {
       console.log(data)
+      data.sort((a: MedicineExport, b: MedicineExport) => {
+        return  new Date(b.exportDate).getDate() - new Date(a.exportDate).getDate();
+    });
       this.medicinesExportlst = Object.values(data);
     }, 
     error => console.log(error));

@@ -19,7 +19,7 @@ export class PharmaciesComponent implements OnInit {
   dataSource!: MatTableDataSource<any>;
   employees!: Observable<Employee[]>;
   medicines!: Observable<Medicine[]>;
-  displayedColumns: string[] = ['ID','MedicineName', 'MedicineCompany', 'Category', 'Origin','ManufactureDate','ExpireDate','Amount','Unit','Status', 'Actions'];
+  displayedColumns: string[] = ['ID','MedicineName','MedicineCode','RegisterCode','LotCode', 'ManufactureDate','MedicineCompany', 'Origin','CriteriaManufacture','SpecPackage','Concentration','UsageForm', 'ExpireDate','Unit','Amount', 'Cost','Actions'];
 
   constructor(private pharmaciesService: PharmaciesService,
     private router: Router) {}
@@ -32,6 +32,9 @@ export class PharmaciesComponent implements OnInit {
     this.medicines = this.pharmaciesService.getMedicineList();
     // Thắng
     this.pharmaciesService.getMedicineList().subscribe(data => {
+      data.sort((a: Medicine, b: Medicine) => {
+        return  new Date(b.manufactureDate).getDate() - new Date(a.manufactureDate).getDate();
+    });
       this.dataSource = new MatTableDataSource(data);
    })
   }
@@ -69,6 +72,16 @@ export class PharmaciesComponent implements OnInit {
     
   }
   
+  deleteMedicine(id: number) {
+    this.pharmaciesService.deleteMedicine(id)
+      .subscribe(
+        data => {
+          console.log(data);
+          //this.reloadData();
+        },
+        error => console.log(error));
+  }
+
 
 }
 

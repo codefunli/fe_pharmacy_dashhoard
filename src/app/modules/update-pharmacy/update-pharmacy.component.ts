@@ -36,7 +36,6 @@ export class UpdatePharmacyComponent implements OnInit {
     this.form = this.fb.group({
       medicineName: [null, [Validators.required]],
       medicineCompany: [null, [Validators.required]],
-      category: [null, [Validators.required]],
       origin: [null, [Validators.required]],
       manufactureDate: [null, [Validators.required]],
       expireDate: [null, [Validators.required]],

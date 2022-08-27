@@ -33,22 +33,22 @@
       <td mat-cell *matCellDef="let medicine"> {{medicine.medicineName}} </td>
     </ng-container>
 
-    <!-- Medicine Company -->
-    <ng-container matColumnDef="MedicineCompany">
-      <th mat-header-cell *matHeaderCellDef> Công ty dược </th>
-      <td mat-cell *matCellDef="let medicine"> {{medicine.medicineCompany}} </td>
+    <!-- Medicine code -->
+    <ng-container matColumnDef="MedicineCode">
+      <th mat-header-cell *matHeaderCellDef> Mã số </th>
+      <td mat-cell *matCellDef="let medicine"> {{medicine.medicineCode}} </td>
     </ng-container>
 
-    <!-- Category -->
-    <ng-container matColumnDef="Category">
-      <th mat-header-cell *matHeaderCellDef> Phân loại </th>
-      <td mat-cell *matCellDef="let medicine"> {{medicine.category}} </td>
+    <!-- Register code -->
+    <ng-container matColumnDef="RegisterCode">
+      <th mat-header-cell *matHeaderCellDef> Số đăng ký </th>
+      <td mat-cell *matCellDef="let medicine"> {{medicine.registerCode}} </td>
     </ng-container>
 
-    <!-- Origin -->
-    <ng-container matColumnDef="Origin">
-      <th mat-header-cell *matHeaderCellDef> Xuất xứ </th>
-      <td mat-cell *matCellDef="let medicine"> {{medicine.origin}} </td>
+    <!-- Lot code -->
+    <ng-container matColumnDef="LotCode">
+      <th mat-header-cell *matHeaderCellDef> Số lô </th>
+      <td mat-cell *matCellDef="let medicine"> {{medicine.lotCode}} </td>
     </ng-container>
 
     <!-- Manufacture Date -->
@@ -57,16 +57,46 @@
       <td mat-cell *matCellDef="let medicine"> {{medicine.manufactureDate | date:'shortDate'}} </td>
     </ng-container>
 
-    <!-- Expire Date -->
-    <ng-container matColumnDef="ExpireDate">
-      <th mat-header-cell *matHeaderCellDef> Ngày hết hạn </th>
-      <td mat-cell *matCellDef="let medicine"> {{medicine.expireDate | date:'shortDate'}} </td>
+    <!-- Medicine Company -->
+    <ng-container matColumnDef="MedicineCompany">
+      <th mat-header-cell *matHeaderCellDef> Nhà sản xuất </th>
+      <td mat-cell *matCellDef="let medicine"> {{medicine.medicineCompany}} </td>
+    </ng-container>    
+
+    <!-- Origin -->
+    <ng-container matColumnDef="Origin">
+      <th mat-header-cell *matHeaderCellDef> Xuất xứ </th>
+      <td mat-cell *matCellDef="let medicine"> {{medicine.origin}} </td>
+    </ng-container>    
+
+    <!-- Criteria Manufacture -->
+    <ng-container matColumnDef="CriteriaManufacture">
+      <th mat-header-cell *matHeaderCellDef> Tiêu chuẩn sản xuất </th>
+      <td mat-cell *matCellDef="let medicine"> {{medicine.criteriaManufacture}} </td>
+    </ng-container> 
+
+    <!-- Spec Package -->
+    <ng-container matColumnDef="SpecPackage">
+      <th mat-header-cell *matHeaderCellDef> Quy cách đóng gói </th>
+      <td mat-cell *matCellDef="let medicine"> {{medicine.specPackage}} </td>
     </ng-container>
 
-    <!-- Amount -->
-    <ng-container matColumnDef="Amount">
-      <th mat-header-cell *matHeaderCellDef> Số lượng </th>
-      <td mat-cell *matCellDef="let medicine"> {{medicine.amount}} </td>
+    <!-- Concentration -->
+    <ng-container matColumnDef="Concentration">
+      <th mat-header-cell *matHeaderCellDef> Nồng độ </th>
+      <td mat-cell *matCellDef="let medicine"> {{medicine.concentration}} </td>
+    </ng-container>
+
+    <!-- Usage Form -->
+    <ng-container matColumnDef="UsageForm">
+      <th mat-header-cell *matHeaderCellDef> Dạng dùng </th>
+      <td mat-cell *matCellDef="let medicine"> {{medicine.usageForm}} </td>
+    </ng-container>
+
+    <!-- Expire Date -->
+    <ng-container matColumnDef="ExpireDate">
+      <th mat-header-cell *matHeaderCellDef> Hạn sử dụng </th>
+      <td mat-cell *matCellDef="let medicine"> {{medicine.expireDate | date:'shortDate'}} </td>
     </ng-container>
 
     <!-- Unit -->
@@ -75,10 +105,16 @@
       <td mat-cell *matCellDef="let medicine"> {{medicine.unit}} </td>
     </ng-container>
 
-    <!-- Status -->
-    <ng-container matColumnDef="Status">
-      <th mat-header-cell *matHeaderCellDef> Tình trạng </th>
-      <td mat-cell *matCellDef="let medicine"> {{medicine.status}} </td>
+    <!-- Amount -->
+    <ng-container matColumnDef="Amount">
+      <th mat-header-cell *matHeaderCellDef> Số lượng </th>
+      <td mat-cell *matCellDef="let medicine"> {{medicine.amount}} </td>
+    </ng-container>  
+
+    <!-- Amount -->
+    <ng-container matColumnDef="Cost">
+      <th mat-header-cell *matHeaderCellDef> Đơn giá </th>
+      <td mat-cell *matCellDef="let medicine"> {{medicine.cost}} </td>
     </ng-container>
 
     <!-- Action -->
@@ -90,10 +126,10 @@
         </button>
         <!-- <button mat-icon-button (click)="medicineUpdate(medicine.id)" title="Cập nhật">
           <mat-icon>update</mat-icon>
-        </button>
+        </button> 
         <button mat-icon-button (click)="deleteMedicine(medicine.id)" title="Loại bỏ">
           <mat-icon>delete</mat-icon>
-        </button> -->
+        </button>-->
 
       </td>
     </ng-container>
