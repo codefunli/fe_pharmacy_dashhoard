@@ -1,6 +1,8 @@
 export class MedicineExport {
     id!: number;
-    medicineName!: string;    
+    medicineName!: string;
+    medicineCode!: string;
+    lotCode!: string;
     medicineCompany!: string;
     exportDate!: Date;
     amount!: number;

@@ -12,6 +12,7 @@ import { PharmaciesService } from '../services/pharmacies.service';
 })
 export class ImportStoreComponent implements OnInit {
 
+  selected: string= "";
   medicine!: Medicine;
   form: FormGroup = new FormGroup({});
   hideRequiredControl = new FormControl(false);
@@ -29,6 +30,7 @@ export class ImportStoreComponent implements OnInit {
       medicineCode: [null, [Validators.required]],
       medicineName: [null, [Validators.required]],
       lotCode: [null, [Validators.required]],
+      registerCode: [null, [Validators.required]],
       medicineCompany: [null, [Validators.required]],
       criteriaManufacture: [null, [Validators.required]],
       specPackage: [null, [Validators.required]],
@@ -40,7 +42,6 @@ export class ImportStoreComponent implements OnInit {
       importDate: [null, [Validators.required]],
       amount: [null, [Validators.required,Validators.pattern("^[0-9]+$"), Validators.min(1)]],
       unit: [null, [Validators.required]],
-      status: [null, [Validators.required]],
       cost: [null, [Validators.required,Validators.pattern("^[0-9]+$"), Validators.min(1)]],
     });
   }
@@ -63,6 +64,26 @@ export class ImportStoreComponent implements OnInit {
 
   gotoList() {
     this.router.navigate(['/pharmacies']);
+  }
+
+  report(selected: string){
+    if(!selected){
+      alert("Please choose a month for report!");
+    } else{
+      console.log(selected);
+
+    this.pharmaciesService.getImportReport(selected).subscribe(
+      data => {
+        let fileName = data.headers.get("File-Name")!;
+        console.log(fileName);
+        let blob: Blob = data.body as Blob;
+        let a = document.createElement('a');
+        a.download = fileName; 
+        a.href = window.URL.createObjectURL(blob);
+        a.click();
+      }
+    )
+    }
   }
 
  

@@ -7,8 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class PharmaciesService {
 
-  private baseUrl = 'https://pharmacy-management-nineplus.herokuapp.com/pharmacy/api/v1/pharmacies';
-  private exportUrl = 'https://pharmacy-management-nineplus.herokuapp.com/pharmacy/api/v1/pharmacies/export'
+  //private baseUrl = 'https://pharmacy-management-nineplus.herokuapp.com/pharmacy/api/v1/pharmacies';
+  //private exportUrl = 'https://pharmacy-management-nineplus.herokuapp.com/pharmacy/api/v1/pharmacies/export'
+
+  private baseUrl = 'http://localhost:8080/pharmacy/api/v1/pharmacies';
+  private exportUrl = 'http://localhost:8080/pharmacy/api/v1/pharmacies/export'
+
 
   constructor(private http: HttpClient) { }
 
@@ -63,5 +67,13 @@ export class PharmaciesService {
 
   deleteMedicine(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+  }
+
+  getImportReport(selected: string) {
+    return this.http.get(`${this.baseUrl}/download/import/${selected}`, {observe: 'response', responseType: 'blob'});
+  }
+
+  getExportReport(selected: string) {
+    return this.http.get(`${this.baseUrl}/download/export/${selected}`, {observe: 'response', responseType: 'blob'});
   }
 }

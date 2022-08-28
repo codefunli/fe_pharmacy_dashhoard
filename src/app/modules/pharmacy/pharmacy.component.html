@@ -23,6 +23,12 @@
             <input matInput placeholder="L01" formControlName="lotCode" [(ngModel)]="medicine.lotCode">
           </mat-form-field>
         </td>
+        <td>
+            <mat-form-field appearance="fill" [floatLabel]="getFloatLabelValue()">
+              <mat-label>Số đăng ký</mat-label>
+              <input matInput placeholder="R012022" formControlName="registerCode">
+            </mat-form-field>
+          </td>
       </tr>
       <mat-divider></mat-divider>
       <h3>Thông tin nguồn hàng</h3>

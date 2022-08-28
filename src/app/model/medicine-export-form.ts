@@ -1,5 +1,6 @@
 export class MedicineExportForm {
-    medicineId!: number;    
+    medicineCode!: string;
+    lotCode!: string;    
     exportDate!: Date;
     amount!: number;
 }
