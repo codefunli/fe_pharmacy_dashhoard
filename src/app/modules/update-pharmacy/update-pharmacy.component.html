@@ -26,7 +26,7 @@
         <td>
             <mat-form-field appearance="fill" [floatLabel]="getFloatLabelValue()">
               <mat-label>Số đăng ký</mat-label>
-              <input matInput placeholder="R012022" formControlName="registerCode">
+              <input matInput placeholder="R012022" formControlName="registerCode" [(ngModel)]="medicine.registerCode">
             </mat-form-field>
           </td>
       </tr>

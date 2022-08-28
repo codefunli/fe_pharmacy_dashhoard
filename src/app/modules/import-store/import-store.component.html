@@ -1,7 +1,24 @@
 <h2 style="text-align:center;">NHẬP KHO</h2>
 <mat-divider></mat-divider>
 <div class="example-container">
-  <mat-form-field appearance="fill">
+
+  <div style="position: absolute; right: 50px; top: 7px;">
+    <mat-form-field appearance="standard">
+      <mat-label>Chọn tháng</mat-label>
+      <mat-select matNativeControl required [(value)]="selected">
+        <mat-option>None</mat-option>
+        <mat-option value="8">Thang 8</mat-option>
+        <mat-option value="9">Thang 9</mat-option>
+        <mat-option value="10">Thang 10</mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    <!-- <a href="http://localhost:8080/pharmacy/api/v1/pharmacies/report">Export</a> -->
+    <button mat-button color="primary" id="report_import_btn" (click) = "report(selected)" 
+      style="background-color: #3f51b5; color: white; margin-left: 8px; ">Báo cáo nhập kho</button>
+    </div>
+
+  <!-- <mat-form-field appearance="fill">
     <mat-label>Select a month</mat-label>
     <mat-select matNativeControl required [(value)]="selected">
       <mat-option>None</mat-option>
@@ -11,7 +28,7 @@
     </mat-select>
   </mat-form-field>
   <button mat-button color="primary" id="report_import_btn" (click) = "report(selected)"
-  style="background-color: #3f51b5; color: white; margin-left: 8px;"> Create Import Report</button>
+  style="background-color: #3f51b5; color: white; margin-left: 8px; position: absolute; right: 50px; top: 35px"> Create Import Report</button> -->
   <form [formGroup]="form" (ngSubmit)="saveDetails(form)">
     <table>
       <h3>Thông tin thuốc nhập</h3>

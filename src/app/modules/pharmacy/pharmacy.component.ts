@@ -34,30 +34,27 @@ export class PharmacyComponent implements OnInit {
       this.medicine = data;
     }, error => console.log(error));
     this.form = this.fb.group({
+      medicineCode: [null, [Validators.required]],
       medicineName: [null, [Validators.required]],
+      lotCode: [null, [Validators.required]],
+      registerCode: [null, [Validators.required]],
       medicineCompany: [null, [Validators.required]],
+      criteriaManufacture: [null, [Validators.required]],
+      specPackage: [null, [Validators.required]],
+      concentration: [null, [Validators.required]],
+      usageForm: [null, [Validators.required]],
       origin: [null, [Validators.required]],
       manufactureDate: [null, [Validators.required]],
       expireDate: [null, [Validators.required]],
+      importDate: [null, [Validators.required]],
       amount: [null, [Validators.required,Validators.pattern("^[0-9]+$"), Validators.min(1)]],
       unit: [null, [Validators.required]],
-      status: [null, [Validators.required]],
+      cost: [null, [Validators.required,Validators.pattern("^[0-9]+$"), Validators.min(1)]],
     });
   }
 
   getFloatLabelValue(): FloatLabelType {
     return this.floatLabelControl.value || 'auto';
-  }
-
-  updateMedicine(form: any) {
-    this.medicine = this.form.value;
-    this.pharmaciesService.updateMedicine(this.id, this.medicine).subscribe(data => {
-      console.log(data)
-      this.medicine = new Medicine();
-      this.gotoList();
-    }, 
-    error => console.log(error));
-    console.log(this.medicine)
   }
 
   medicineUpdate(id: number){

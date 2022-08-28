@@ -33,14 +33,13 @@ export class PharmaciesComponent implements OnInit {
     // Thắng
     this.pharmaciesService.getMedicineList().subscribe(data => {
       data.sort((a: Medicine, b: Medicine) => {
-        return  new Date(b.manufactureDate).getDate() - new Date(a.manufactureDate).getDate();
+        return a.id - b.id;
+        //return  new Date(b.manufactureDate).getDate() - new Date(a.manufactureDate).getDate();
     });
       this.dataSource = new MatTableDataSource(data);
    })
   }
-
   
-
   medicineDetails(id: number){
     this.router.navigate(['details', id]);
   }
