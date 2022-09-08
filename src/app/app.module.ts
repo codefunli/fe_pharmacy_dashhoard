@@ -15,10 +15,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from "@angular/material/card";
+import { LogoutComponent } from './modules/logout/logout.component';
+import { RegisterComponent } from './modules/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LogoutComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

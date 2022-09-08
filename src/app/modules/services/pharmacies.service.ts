@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class PharmaciesService {
 
-  //private baseUrl = 'https://pharmacy-management-nineplus.herokuapp.com/pharmacy/api/v1/pharmacies';
-  //private exportUrl = 'https://pharmacy-management-nineplus.herokuapp.com/pharmacy/api/v1/pharmacies/export'
+ //private baseUrl = 'https://pharmacy-management-nineplus.herokuapp.com/pharmacy/api/v1/pharmacies';
+ //private exportUrl = 'https://pharmacy-management-nineplus.herokuapp.com/pharmacy/api/v1/pharmacies/export'
 
   private baseUrl = 'http://localhost:8080/pharmacy/api/v1/pharmacies';
   private exportUrl = 'http://localhost:8080/pharmacy/api/v1/pharmacies/export'

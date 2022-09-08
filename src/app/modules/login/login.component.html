@@ -2,11 +2,11 @@
   <mat-card>
     <mat-card-title>Đăng nhập</mat-card-title>
     <mat-card-content>
-        <form [formGroup]="form" (ngSubmit)="saveDetails(form)" autocomplete="off">
+        <form [formGroup]="form" (ngSubmit)="checkLogin(form)" autocomplete="off">
             <div>
                 <mat-form-field appearance="legacy">
                     <mat-label>Tên đăng nhập:</mat-label>
-                    <input matInput type="email" formControlName="email" placeholder="Tên người dùng">
+                    <input matInput type="text" formControlName="username" placeholder="Tên người dùng">
                     <mat-icon matSuffix>account</mat-icon>
                     <mat-hint>Vui lòng nhập tên người dùng</mat-hint>
                 </mat-form-field>
